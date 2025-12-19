@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .btn-small{
+        padding: 8px 18px ;
+        border: none;
+        border-radius: 20px;
+        background-color:rgb(119, 46, 119);
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 6px;
+    }
+    .btn-small:hover {
+        opacity: 0.9;
+    }
+    .calc-input{
+        width: 180px;
+        padding: 8px 10px;
+        border-radius: 5px solid black;
+        font-size:14px;
+        margin: 6px 6px 6px 0;
+    }
+    </style>
+ </head>
+ <body>
+      <!--Task 2 here button color change -->
+       <div class="card">
+        <h3>
+            Change my Color
+            </h3>
+            <button id="colorBtn" class="btn-small">click Me</button>
+       <h3>Simple calculator</h3>
+        <!--Task 2 calculator -->
+        <input type="number" id="num1" class="calc-input" placeholder="Enter First Number">
+        <input type="number" id="num2" class="calc-input" placeholder="Enter Second Number">
+        <button id="calcBtn" class="btn-small">Add</button>
+        <p>Result: <span id="result">0</span></p>
+
+       </div>
+       <script>
+    //button color change
+    const colorBtn= document.getElementById('colorBtn');
+    let isPurple =true;
+    colorBtn.addEventListener('click', function(){
+        if (isPurple){
+            colorBtn.style.backgroundColor = 'tomato';
+
+        } else {
+            colorBtn.style.backgroundColor = '#5c2d91';
+        }
+        isPurple=!isPurple;
+    });
+    function showGreeting(){
+        const hour=new Date().getHours();
+        let message;
+
+        if (hour<12)
+        {
+            message= 'Good Morning';
+        }
+        else if (hour<18)
+        {
+             message= 'Good Afternoon';
+        }
+        else
+        {
+            message= ' Good Evening';
+        }
+        alert(message);
+    }
+    showGreeting();
+    // calculator
+    const calcBtn=document.getElementById('calcBtn');
+    calcBtn.addEventListener('click',function() {
+        const n1 = parseFloat(document.getElementById('num1').value);
+         const n2 = parseFloat(document.getElementById('num2').value);
+         const sum = n1 +n2;
+         document.getElementById('result').textContent = isNaN(sum) ? 'Enter Both Number' :sum;
+    });
+
+
+       </script>
+ </body>
+ </html>
